@@ -1,0 +1,61 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{multicol}
+\usepackage{booktabs}
+
+\geometry{margin=2.5cm}
+
+\begin{document}
+
+\section*{Glossar für Python-Befehle}
+
+\begin{center}
+\begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
+\hline
+\textbf{Befehl} & \textbf{Beschreibung} & \textbf{Beispiel} \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
+\hline
+a = b & a := b Der Wert von a wird auf b gesetzt. Die Leerzeichen sind redundant und nur für Lesbarkeit & a = 2 \\
+\hline
+print(x) & Gibt x aus & print(a) \newline{} \texttt{=>} 2\\
+\hline
+print(x, y, "z") & Innerhalb eines prints können mehrere Variablen verkettet werden& print("a = " , a) \newline{} \texttt{=>} a = 2\\
+\hline
+import \textcolor{gray}{Package} as \textcolor{gray}{Abkürzung} & Läd Bibliotheken m ihre Befehle nutzen zu können. Das "as Abkürzung" ist hierbei nicht erforderlich, sondern verringert die Schreibarbeit. & import numpy as np\\
+\hline
+\end{tabular}
+\end{center}
+
+%Alles hier drunter habe ich aus einem Julia Glossar aus einer Mathematik Veranstalltung. Das kommt natürlich noch raus, brauchte aber erstaml eine Orientierung zum lernen.
+
+\vspace{1cm}
+
+\section*{Content 2}
+
+\begin{center}
+\begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
+\hline
+\texttt{a = b} & $a := b$, neue Variable \texttt{a} wird definiert als Ausdruck \texttt{b}, ”Zuweisungsoperator” & \texttt{a = 2} \\
+\hline
+\texttt{print(x)} & Ausgabe von \texttt{x} & \\
+\hline
+\texttt{println(x)} & Ausgabe von \texttt{x} mit Zeilenumbruch & \\
+\hline
+\texttt{using SymPy \textcolor{green}{(*)}} & müssen wir ausführen, bevor wir mit \textcolor{green}{(*)} markierte Befehle verwenden können & \\
+\hline
+\end{tabular}
+\end{center}
+
+\end{document}
