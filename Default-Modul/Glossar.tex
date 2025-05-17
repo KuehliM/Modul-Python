@@ -9,10 +9,13 @@
 \usepackage{longtable}
 \usepackage{multicol}
 \usepackage{booktabs}
+\usepackage{verbatim}
 
 \geometry{margin=2.5cm}
 
 \begin{document}
+
+%Hier noch ein Titel gemäß Nebenfach/Lehramt Ia
 
 \section*{Glossar für Python-Befehle}
 
@@ -38,24 +41,74 @@ import \textcolor{gray}{Package} as \textcolor{gray}{Abkürzung} & Läd Biblioth
 \end{tabular}
 \end{center}
 
-%Alles hier drunter habe ich aus einem Julia Glossar aus einer Mathematik Veranstalltung. Das kommt natürlich noch raus, brauchte aber erstaml eine Orientierung zum lernen.
-
-\vspace{1cm}
-
-\section*{Content 2}
+\section*{Arithmetik}
 
 \begin{center}
 \begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
 \hline
-\texttt{a = b} & $a := b$, neue Variable \texttt{a} wird definiert als Ausdruck \texttt{b}, ”Zuweisungsoperator” & \texttt{a = 2} \\
+a + b & Addition & a + 3 \newline{} \texttt{=>} 5 \\
 \hline
-\texttt{print(x)} & Ausgabe von \texttt{x} & \\
+a - b & Subtraktion & a - 3.5 \newline{} \texttt{=>} -1.5 \\
 \hline
-\texttt{println(x)} & Ausgabe von \texttt{x} mit Zeilenumbruch & \\
+a * b & Multiplikation & a * 5 \newline{} \texttt{=>} 10 \\
 \hline
-\texttt{using SymPy \textcolor{green}{(*)}} & müssen wir ausführen, bevor wir mit \textcolor{green}{(*)} markierte Befehle verwenden können & \\
+a / b & Division & a / 3 \newline{} \texttt{=>} 0.666666666666666 \\ %Echte Anzahl lassen oder Kürzen?
+\hline
+a // b & Division ohne Rest & a // 3 \newline{} \texttt{=>} 0 \\
+\hline
+a \% b & Rest der Division & a \% 3 \newline{} \texttt{=>} 2 \\
+\hline
+a ** b & Potenzieren ($a^b$) & a ** 3 \newline{} \texttt{=>} 8 \\
+\hline
+round(x) & Rundet nach Standard Rundungsregeln & round(2.5) \newline{} \texttt{=>} 3 \\
 \hline
 \end{tabular}
 \end{center}
+
+\section*{Tricks} %Soll am bein fertigstellung des Glossars ans Ende kommen
+
+\begin{center}
+\begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
+\hline
+str(x) & Erstellt einen String aus x sofern möglich & string\_a = str(a) \\
+\hline
+int(x) & Erstellt einen Integer aus x sofern möglich & int(string\_a) \\
+\hline
+x. & Erstellt statt einem Integer einen Float & 
+\begin{tabular}{|p{1.2cm}|p{1.1cm}|}
+2 & 2. \\
+\texttt{=>} 2 & \texttt{=>} 2.0 \\
+\end{tabular}
+\\
+\hline
+\end{tabular}
+\end{center}
+
+\section*{NumPy}
+
+Für diese Befehle muss zuerst NumPy importiert werden. Hier wird im vollgendem immer np als Abkürzung für NumPy verwendet.
+
+\begin{center}
+\begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
+\hline
+np.sqrt(x) & Wurzel & sqrt(a) \newline{} \texttt{=>} 1.4142135623730951 \\
+\hline
+%nrt
+\hline
+\end{tabular}
+\end{center}
+
+
+%Standart Tabelle
+\begin{comment}
+\begin{center}
+\begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
+\hline
+ & & \\
+\hline
+\end{tabular}
+\end{center}
+\end{comment}
+
 
 \end{document}
