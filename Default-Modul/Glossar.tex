@@ -10,6 +10,7 @@
 \usepackage{multicol}
 \usepackage{booktabs}
 \usepackage{verbatim}
+\usepackage{hyperref}
 
 \geometry{margin=2.5cm}
 
@@ -27,6 +28,8 @@
 \end{tabular}
 \end{center}
 
+%Villeicht lieber weniger Abstand mit einer Tabelle und zwei \hline
+
 \begin{center}
 \begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
 \hline
@@ -37,6 +40,8 @@ print(x) & Gibt x aus & print(a) \newline{} \texttt{=>} 2\\
 print(x, y, "z") & Innerhalb eines prints können mehrere Variablen verkettet werden& print("a = " , a) \newline{} \texttt{=>} a = 2\\
 \hline
 import \textcolor{gray}{Package} as \textcolor{gray}{Abkürzung} & Läd Bibliotheken m ihre Befehle nutzen zu können. Das "as Abkürzung" ist hierbei nicht erforderlich, sondern verringert die Schreibarbeit. & import numpy as np\\
+\hline
+from \textcolor{gray}{Package} import \textcolor{gray}{Methode} & Läd nur einzelne Methoden oder Packete aus einer Bibliothek & from numpy import pi \\
 \hline
 \end{tabular}
 \end{center}
@@ -65,7 +70,104 @@ round(x) & Rundet nach Standard Rundungsregeln & round(2.5) \newline{} \texttt{=
 \end{tabular}
 \end{center}
 
-\section*{Tricks} %Soll am bein fertigstellung des Glossars ans Ende kommen
+\section*{Vergleichen}
+
+\begin{center}
+\begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
+\hline
+a == b & a gleich b & a == 3 \newline{} \texttt{=>} False \\
+\hline
+a != b & a ungleich b & a != 3 \newline{} \texttt{=>} True \\
+\hline
+a \texttt{<} b & a kleiner b & a \texttt{<} 3 \newline{} \texttt{=>} True \\
+\hline
+a \texttt{<=} b & a kleiner oder gleich b & a \texttt{<=} 3 \newline{} \texttt{=>} True \\
+\hline
+a \texttt{>} b & a größer b & a \texttt{>} 3 \newline{} \texttt{=>} False \\
+\hline
+a \texttt{>=} b & a größer oder gleich b & a \texttt{>=} 3 \newline{} \texttt{=>} False \\
+\hline
+\end{tabular}
+\end{center}
+
+\section*{Listen}
+
+\begin{center}
+\begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
+\hline
+Liste = [x, y, z] & Erzeugt eine Liste mit beliebigen Einträgen & L = [a, 2 * a, 2 * a -1, 1] \newline{} print(L) \newline{} \texttt{=>} [2, 4, 3, 1] \\
+\hline
+Liste[x] & Gibt den Eintrag der Liste aus & L[a] \newline{} \texttt{=>} 3 \\
+\hline
+Liste[x:y:z] & Gibt von Eintrag x bis Eintrag y jeden z-ten Eintrag aus. Hierbei ist Liste[x:y] := Liste[x:y:1] & L[:3:2] \newline{} \texttt{=>} [2, 3] \\
+\hline
+len(Liste) & Anzahl der Listeneinträge & len(L) \newline{} \texttt{=>} 4 \\
+\hline
+sum(Liste) & Summiert alle Listeneinträge auf & sum(L) \newline{} \texttt{=>} 10 \\
+\hline
+%Anhängen und entfernen von Elementen hinzufügen? In Datenauswetung wird auf eigene Recherche gesetzt
+\end{tabular}
+\end{center}
+
+%Methoden werden erstmal ausgelassen, da zu kurz für eigenes Kapitel. Eventuell in Tricks
+\newpage
+\section*{NumPy}
+
+Für diese Befehle muss zuerst NumPy importiert werden. Hier wird im vollgendem immer np als Abkürzung für NumPy verwendet.
+
+\begin{center}
+\begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
+\hline
+np.Methode & Lässt eine Methode aus NumPy ausführen & np.pi \newline{} \texttt{=>} 3.141592653589793 \\
+\hline
+np.sqrt(x) & Wurzel & sqrt(a) \newline{} \texttt{=>} 1.4142135623730951 \\
+\hline
+np.array(Liste) & Erstellt aus einer Liste einen NumPy Array & nL = np.Array(L) \\
+\hline
+array.min() & Gibt das Minimum von einem Array aus & nL.min() \newline{} \texttt{=>} 1 \\
+\hline
+array.max() & Gibt das Maximum von einem Array aus & nL.max() \newline{} \texttt{=>} 4 \\
+\hline
+array.sum() & Gibt die Summe von einem Array aus & nL.sum() \newline{} \texttt{=>} 10 \\
+\hline
+array.mean() & Gibt den Mittelwert von einem Array aus & nL.mean() \newline{} \texttt{=>} 2.5 \\
+\hline
+array.std() & Gibt die Standartabweichung von einem Array aus & nL.std() \newline{} \texttt{=>} 1.118033988749895 \\
+\hline
+x, y, z = np.loadtxt( \textcolor{gray}{Dateiname}, \textcolor{gray}{delimiter}, \textcolor{gray}{skiprows}, \textcolor{gray}{usecols}, \textcolor{gray}{unpack}) & Erstellt Arrays x, y und z au den Spalten von der Datei & t, a\_x = np.loadtxt( "Messung1.csv", delimiter=",", skiprows=1, usecols=(0,1), unpack=True) \\ 
+&&\\
+& Dateiname ist der Name der Datei \newline{} \newline{}
+delimeter gibt an, welches Zeichen die Daten trennen \newline{} \newline{}
+skiprows gibt an wie viele Spalten bei einem delimiter übersprungen werden müssen \newline{} \newline{}
+Wenn nur bestimmte Spalten benötigt werden können diese mit usecols angegeben werden \newline{} \newline{}
+unpack sorgt dafür, dass in mehrere array aufgeteilt werden kann
+& \\
+\hline
+\end{tabular}
+\end{center}
+
+\section*{MatPlotLib}
+
+Für diese Befehle muss zuerst MatPlotLib importiert werden. Hier wird im vollgendem immer plt als Abkürzung für MatPlotLib verwendet. Eine Einführung gibt es im \href{https://matplotlib.org/stable/users/explain/quick_start.html}{MatPlotLib Quick start Guide}. Hier sollen nur noch einmal eine Auswahl wichtiger Befehle zur schnellen recherche angegeben werden.
+Die Ausgaben werden im Folgendem nicht mehr mit angegeben, da diese meist Plots sind. Am besten einfach selber mal eingeben.
+
+\begin{center}
+\begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
+\hline
+plt.plot(\textcolor{gray}{x-Achse}, \textcolor{gray}{y-Achse}) & Erstellt einen Plot der Daten, solange die Längen der Listen gleich sind. Die meisten der folgenden Befehle können auch direkt in diesem mit Eingebunden werden. & plt.plot([1, 2, 3], [3, 2, 3]) \\
+\hline
+plt.xlim(a, b) & Legt den geplotteten x-Bereich fest & plt.xlim(0, 1) \\
+\hline
+plt.ylim(a, b) & Legt den geplotteten y-Bereich fest & plt.ylim(0, 1) \\
+\hline
+plt.xlabel() & Fügt eine x-Achsenbeschriftung hinzu & plt.xlabel('Zeit in s') \\
+\hline
+plt.ylabel() & Fügt eine y-Achsenbeschriftung hinzu & plt.xlabel('Strecke in m') \\
+\hline
+\end{tabular}
+\end{center}
+
+\section*{Tricks} %Soll am beim fertigstellung des Glossars ans Ende kommen
 
 \begin{center}
 \begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
@@ -83,21 +185,6 @@ x. & Erstellt statt einem Integer einen Float &
 \hline
 \end{tabular}
 \end{center}
-
-\section*{NumPy}
-
-Für diese Befehle muss zuerst NumPy importiert werden. Hier wird im vollgendem immer np als Abkürzung für NumPy verwendet.
-
-\begin{center}
-\begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
-\hline
-np.sqrt(x) & Wurzel & sqrt(a) \newline{} \texttt{=>} 1.4142135623730951 \\
-\hline
-%nrt
-\hline
-\end{tabular}
-\end{center}
-
 
 %Standart Tabelle
 \begin{comment}
