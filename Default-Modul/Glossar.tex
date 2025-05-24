@@ -28,16 +28,16 @@
 \end{tabular}
 \end{center}
 
-%Villeicht lieber weniger Abstand mit einer Tabelle und zwei \hline
+%Villeicht lieber weniger Abstand mit einer Tabelle und zwei \hline => Sieht nicht so gut aus
 
 \begin{center}
 \begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
 \hline
 a = b & a := b Der Wert von a wird auf b gesetzt. Die Leerzeichen sind redundant und nur für Lesbarkeit & a = 2 \\
 \hline
-print(x) & Gibt x aus & print(a) \newline{} \texttt{=>} 2\\
+print(x) & Gibt x aus & print(a) \newline{} $\Rightarrow$ 2\\
 \hline
-print(x, y, "z") & Innerhalb eines prints können mehrere Variablen verkettet werden& print("a = " , a) \newline{} \texttt{=>} a = 2\\
+print(x, y, "z") & Innerhalb eines prints können mehrere Variablen verkettet werden& print("a = " , a) \newline{} $\Rightarrow$ a = 2\\
 \hline
 import \textcolor{gray}{Package} as \textcolor{gray}{Abkürzung} & Läd Bibliotheken m ihre Befehle nutzen zu können. Das "as Abkürzung" ist hierbei nicht erforderlich, sondern verringert die Schreibarbeit. & import numpy as np\\
 \hline
@@ -51,21 +51,21 @@ from \textcolor{gray}{Package} import \textcolor{gray}{Methode} & Läd nur einze
 \begin{center}
 \begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
 \hline
-a + b & Addition & a + 3 \newline{} \texttt{=>} 5 \\
+a + b & Addition & a + 3 \newline{} $\Rightarrow$ 5 \\
 \hline
-a - b & Subtraktion & a - 3.5 \newline{} \texttt{=>} -1.5 \\
+a - b & Subtraktion & a - 3.5 \newline{} $\Rightarrow$ -1.5 \\
 \hline
-a * b & Multiplikation & a * 5 \newline{} \texttt{=>} 10 \\
+a * b & Multiplikation & a * 5 \newline{} $\Rightarrow$ 10 \\
 \hline
-a / b & Division & a / 3 \newline{} \texttt{=>} 0.666666666666666 \\ %Echte Anzahl lassen oder Kürzen?
+a / b & Division & a / 3 \newline{} $\Rightarrow$ 0.666666666666 \\ 
 \hline
-a // b & Division ohne Rest & a // 3 \newline{} \texttt{=>} 0 \\
+a // b & Division ohne Rest & a // 3 \newline{} $\Rightarrow$ 0 \\
 \hline
-a \% b & Rest der Division & a \% 3 \newline{} \texttt{=>} 2 \\
+a \% b & Rest der Division & a \% 3 \newline{} $\Rightarrow$ 2 \\
 \hline
-a ** b & Potenzieren ($a^b$) & a ** 3 \newline{} \texttt{=>} 8 \\
+a ** b & Potenzieren ($a^b$) & a ** 3 \newline{} $\Rightarrow$ 8 \\
 \hline
-round(x) & Rundet nach Standard Rundungsregeln & round(2.5) \newline{} \texttt{=>} 3 \\
+round(x) & Rundet nach Standard Rundungsregeln & round(2.5) \newline{} $\Rightarrow$ 3 \\
 \hline
 \end{tabular}
 \end{center}
@@ -75,17 +75,17 @@ round(x) & Rundet nach Standard Rundungsregeln & round(2.5) \newline{} \texttt{=
 \begin{center}
 \begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
 \hline
-a == b & a gleich b & a == 3 \newline{} \texttt{=>} False \\
+a == b & a gleich b & a == 3 \newline{} $\Rightarrow$ False \\
 \hline
-a != b & a ungleich b & a != 3 \newline{} \texttt{=>} True \\
+a != b & a ungleich b & a != 3 \newline{} $\Rightarrow$ True \\
 \hline
-a \texttt{<} b & a kleiner b & a \texttt{<} 3 \newline{} \texttt{=>} True \\
+a \texttt{<} b & a kleiner b & a \texttt{<} 3 \newline{} $\Rightarrow$ True \\
 \hline
-a \texttt{<=} b & a kleiner oder gleich b & a \texttt{<=} 3 \newline{} \texttt{=>} True \\
+a \texttt{<=} b & a kleiner oder gleich b & a \texttt{<=} 3 \newline{} $\Rightarrow$ True \\
 \hline
-a \texttt{>} b & a größer b & a \texttt{>} 3 \newline{} \texttt{=>} False \\
+a \texttt{>} b & a größer b & a \texttt{>} 3 \newline{} $\Rightarrow$ False \\
 \hline
-a \texttt{>=} b & a größer oder gleich b & a \texttt{>=} 3 \newline{} \texttt{=>} False \\
+a \texttt{>=} b & a größer oder gleich b & a \texttt{>=} 3 \newline{} $\Rightarrow$ False \\
 \hline
 \end{tabular}
 \end{center}
@@ -95,52 +95,55 @@ a \texttt{>=} b & a größer oder gleich b & a \texttt{>=} 3 \newline{} \texttt{
 \begin{center}
 \begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
 \hline
-Liste = [x, y, z] & Erzeugt eine Liste mit beliebigen Einträgen & L = [a, 2 * a, 2 * a -1, 1] \newline{} print(L) \newline{} \texttt{=>} [2, 4, 3, 1] \\
+Liste = [x, y, z] & Erzeugt eine Liste mit beliebigen Einträgen & L = [a, 2 * a, 2 * a -1, 1] \newline{} print(L) \newline{} $\Rightarrow$ [2, 4, 3, 1] \\
 \hline
-Liste[x] & Gibt den Eintrag der Liste aus & L[a] \newline{} \texttt{=>} 3 \\
+Liste[x] & Gibt den Eintrag der Liste aus & L[a] \newline{} $\Rightarrow$ 3 \\
 \hline
-Liste[x:y:z] & Gibt von Eintrag x bis Eintrag y jeden z-ten Eintrag aus. Hierbei ist Liste[x:y] := Liste[x:y:1] & L[:3:2] \newline{} \texttt{=>} [2, 3] \\
+Liste[x:y:z] & Gibt von Eintrag x bis Eintrag y jeden z-ten Eintrag aus. Hierbei ist Liste[x:y] := Liste[x:y:1] & L[:3:2] \newline{} $\Rightarrow$ [2, 3] \\
 \hline
-len(Liste) & Anzahl der Listeneinträge & len(L) \newline{} \texttt{=>} 4 \\
+len(Liste) & Anzahl der Listeneinträge & len(L) \newline{} $\Rightarrow$ 4 \\
 \hline
-sum(Liste) & Summiert alle Listeneinträge auf & sum(L) \newline{} \texttt{=>} 10 \\
+sum(Liste) & Summiert alle Listeneinträge auf & sum(L) \newline{} $\Rightarrow$ 10 \\
 \hline
 %Anhängen und entfernen von Elementen hinzufügen? In Datenauswetung wird auf eigene Recherche gesetzt
 \end{tabular}
 \end{center}
 
 %Methoden werden erstmal ausgelassen, da zu kurz für eigenes Kapitel. Eventuell in Tricks
+
 \newpage
 \section*{NumPy}
 
-Für diese Befehle muss zuerst NumPy importiert werden. Hier wird im vollgendem immer np als Abkürzung für NumPy verwendet.
+%np.diag() Bewusst rausgelassen, da in Einführung erklärt und sonst verwirrend 
+
+Für diese Befehle muss zuerst \textbf{NumPy} importiert werden. Hier wird im vollgendem immer \textit{np} als Abkürzung für \textbf{NumPy} verwendet.
 
 \begin{center}
 \begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
 \hline
-np.Methode & Lässt eine Methode aus NumPy ausführen & np.pi \newline{} \texttt{=>} 3.141592653589793 \\
+np.Methode & Lässt eine Methode aus NumPy ausführen & np.pi \newline{} $\Rightarrow$ 3.141592653589 \\
 \hline
-np.sqrt(x) & Wurzel & sqrt(a) \newline{} \texttt{=>} 1.4142135623730951 \\
+np.sqrt(x) & Wurzel & sqrt(a) \newline{} $\Rightarrow$ 1.414213562373 \\
 \hline
 np.array(Liste) & Erstellt aus einer Liste einen NumPy Array & nL = np.Array(L) \\
 \hline
-array.min() & Gibt das Minimum von einem Array aus & nL.min() \newline{} \texttt{=>} 1 \\
+array.min() & Gibt das Minimum von einem Array aus & nL.min() \newline{} $\Rightarrow$ 1 \\
 \hline
-array.max() & Gibt das Maximum von einem Array aus & nL.max() \newline{} \texttt{=>} 4 \\
+array.max() & Gibt das Maximum von einem Array aus & nL.max() \newline{} $\Rightarrow$ 4 \\
 \hline
-array.sum() & Gibt die Summe von einem Array aus & nL.sum() \newline{} \texttt{=>} 10 \\
+array.sum() & Gibt die Summe von einem Array aus & nL.sum() \newline{} $\Rightarrow$ 10 \\
 \hline
-array.mean() & Gibt den Mittelwert von einem Array aus & nL.mean() \newline{} \texttt{=>} 2.5 \\
+array.mean() & Gibt den Mittelwert von einem Array aus & nL.mean() \newline{} $\Rightarrow$ 2.5 \\
 \hline
-array.std() & Gibt die Standartabweichung von einem Array aus & nL.std() \newline{} \texttt{=>} 1.118033988749895 \\
+array.std() & Gibt die Standartabweichung von einem Array aus & nL.std() \newline{} $\Rightarrow$ 1.118033988749 \\
 \hline
 x, y, z = np.loadtxt( \textcolor{gray}{Dateiname}, \textcolor{gray}{delimiter}, \textcolor{gray}{skiprows}, \textcolor{gray}{usecols}, \textcolor{gray}{unpack}) & Erstellt Arrays x, y und z au den Spalten von der Datei & t, a\_x = np.loadtxt( "Messung1.csv", delimiter=",", skiprows=1, usecols=(0,1), unpack=True) \\ 
 &&\\
-& Dateiname ist der Name der Datei \newline{} \newline{}
-delimeter gibt an, welches Zeichen die Daten trennen \newline{} \newline{}
-skiprows gibt an wie viele Spalten bei einem delimiter übersprungen werden müssen \newline{} \newline{}
-Wenn nur bestimmte Spalten benötigt werden können diese mit usecols angegeben werden \newline{} \newline{}
-unpack sorgt dafür, dass in mehrere array aufgeteilt werden kann
+& \textbf{Dateiname} ist der Name der Datei \newline{} \newline{}
+\textbf{delimete}r gibt an, welches Zeichen die Daten trennen \newline{} \newline{}
+\textbf{skiprows} gibt an wie viele Spalten bei einem delimiter übersprungen werden müssen \newline{} \newline{}
+Wenn nur bestimmte Spalten benötigt werden können diese mit \textbf{usecols} angegeben werden \newline{} \newline{}
+\textbf{unpack} sorgt dafür, dass in mehrere array aufgeteilt werden kann
 & \\
 \hline
 \end{tabular}
@@ -148,13 +151,25 @@ unpack sorgt dafür, dass in mehrere array aufgeteilt werden kann
 
 \section*{MatPlotLib}
 
-Für diese Befehle muss zuerst MatPlotLib importiert werden. Hier wird im vollgendem immer plt als Abkürzung für MatPlotLib verwendet. Eine Einführung gibt es im \href{https://matplotlib.org/stable/users/explain/quick_start.html}{MatPlotLib Quick start Guide}. Hier sollen nur noch einmal eine Auswahl wichtiger Befehle zur schnellen recherche angegeben werden.
+Für diese Befehle muss zuerst \textbf{MatPlotLib} importiert werden. Hier wird im vollgendem immer \textit{plt} als Abkürzung für \textbf{MatPlotLib} verwendet. Eine Einführung gibt es im \href{https://matplotlib.org/stable/users/explain/quick_start.html}{\textbf{MatPlotLib} Quick start Guide}. Hier sollen nur noch einmal eine Auswahl wichtiger Befehle zur schnellen Recherche angegeben werden.
 Die Ausgaben werden im Folgendem nicht mehr mit angegeben, da diese meist Plots sind. Am besten einfach selber mal eingeben.
 
 \begin{center}
 \begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
 \hline
-plt.plot(\textcolor{gray}{x-Achse}, \textcolor{gray}{y-Achse}) & Erstellt einen Plot der Daten, solange die Längen der Listen gleich sind. Die meisten der folgenden Befehle können auch direkt in diesem mit Eingebunden werden. & plt.plot([1, 2, 3], [3, 2, 3]) \\
+plt.plot(\textcolor{gray}{x-Achse}, \textcolor{gray}{y-Achse}, \textcolor{gray}{linestyle}, \textcolor{gray}{color}, \textcolor{gray}{linewidth}), \textcolor{gray}{markersize}, \textcolor{gray}{marker} & Erstellt einen Plot der Daten, solange die Längen der Listen gleich sind. Die meisten der folgenden Befehle können auch direkt in diesem mit Eingebunden werden. & plt.plot([1, 2, 3], [3, 2, 3]) \\
+& \textbf{linestyle} verändert das Aussehen des Plotes. Zum Beispiel ist '--' gestrichelt, '-' Normale Linie, 'None' Keine Linien \newline{}
+\textbf{color} gibt die Farbe an \newline{}
+\textbf{linewidth} gibt die Linienstärke an \newline{}
+\textbf{markersize} gibt die Größe der Messpunkte an \newline{}
+\textbf{marker} gibt die Art der Messpunkte an & \\
+\hline
+plt.errorbar(\textcolor{darkgray}{x-Achse}, \textcolor{darkgray}{y-Achse}, \textcolor{darkgray}{linestyle}, \textcolor{darkgray}{color}, \textcolor{darkgray}{linewidth}), \textcolor{darkgray}{markersize}, \textcolor{darkgray}{marker}, \textcolor{gray}{xerr}, \textcolor{gray}{yerr}, \textcolor{gray}{ecolor}, \textcolor{gray}{elinewidth}, \textcolor{gray}{capsize}) & Erstellt einen Plot der Daten mit Fehlerbalken. Besitzt somit die selben übergabeparameter wie plot() und zuzsätliche für die Fehlerbalken. & plt.errorbar([1, 2, 3], [3, 2, 3], yerr=[0.1, 0.2, 0.1], fmt='o', color='red', ecolor='blue', elinewidth=2, capsize=4) \\
+& \textbf{xerr} Ist der Fehler auf die x-Werte \newline{}
+\textbf{yerr} Ist der Fehler auf die y-Werte \newline{}
+\textbf{ecolor} ändert die Farbe der Fehlerbalken \newline{}
+\textbf{elinewidth} ändert die breite der Fehlerbalken \newline{}
+\textbf{capsize} ändert die Größe der Balkenköpfe & \\
 \hline
 plt.xlim(a, b) & Legt den geplotteten x-Bereich fest & plt.xlim(0, 1) \\
 \hline
@@ -162,12 +177,80 @@ plt.ylim(a, b) & Legt den geplotteten y-Bereich fest & plt.ylim(0, 1) \\
 \hline
 plt.xlabel() & Fügt eine x-Achsenbeschriftung hinzu & plt.xlabel('Zeit in s') \\
 \hline
-plt.ylabel() & Fügt eine y-Achsenbeschriftung hinzu & plt.xlabel('Strecke in m') \\
+plt.ylabel() & Fügt eine y-Achsenbeschriftung hinzu & plt.xlabel( 'Strecke in m') \\
+\hline
+plt.title() & Fügt eine Überschrift hinzu & plt.title \newline{} ('Einfaches Diagramm') \\
+\hline
+plt.show() & Zeigt die erstellte Grafik an & plt.show() \\
+\hline
+plt.legend() & Fügt eine Legende hinzu & plt.legend( ['Messung 1']) \\
+\hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
+\hline
+plt.xticks() & Legt die x-Achsen Skalierung fest & plt.xticks( np.arange(0, 4, 0.5)) \\
+\hline
+plt.yticks() & Legt die y-Achsen Skalierung fest & plt.yticks( np.arange(0, 4, 1)) \\
+\hline
+plt.minorticks\_on () & Erstellt kleinere Markierungen & plt.minorticks\_on () \\
+\hline
+plt.minorticks\_off () & Löscht kleinere Markierungen & plt.minorticks\_off () \\
+\hline
+plt.grid() & Schaltet das Grid an und aus & plt.grid(True) \\
+\hline
+plt.text() & Fügt an gewähler stelle einen Text ein & plt.text(1.5, 2.5, 'Text im Diagramm', fontsize=12, color='blue', rotation=45) \\
+\hline
+plt.savefig() & Speichert den Plot & plt.savefig ("Daten")\\
 \hline
 \end{tabular}
 \end{center}
 
-\section*{Tricks} %Soll am beim fertigstellung des Glossars ans Ende kommen
+
+
+\section*{Uncertainties}
+
+Für folgende Befehle muss zuerst \textbf{ufloat} und \textbf{unumpy} aus \textbf{uncertainties}, sowie \textbf{uncertainties.umath} importiert werden. \textbf{unumpy} wird als \textit{unp} Abgekürzt
+
+\begin{center}
+\begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
+\hline
+ufloat(x, dx) & Tupel aus Messwert und Unsicherheit auf signifikante Stellen gerundet & x = ufloat(0.20, 0.01) $\Rightarrow$ 0.02 $\pm$ 0.01 \\
+\hline
+unp.uarray() & Erstellt ein Tupel aus zwei Arrays. Im ersteren stehen die Messwerte, im zweiten die Unsicherheiten. & a\_u = unp.uarray([1, 3, 2], [0.1, 0.2, 0.3] \\
+\hline
+unp.nominal\_ values() & Gibt einen Array der Bestwerte aus & unp.nominal\_ values(([1, 2], [0.1, 0.2])) \newline{} $\Rightarrow$ [1., 2.] \\
+\hline
+unp.std\_devs() & Gibt einen Array der Unsicherheiten aus & unp.std\_devs(( [1, 2], [0.1, 0.2])) \newline{} $\Rightarrow$ [0.1, 0.2] \\
+\hline
+\end{tabular}
+\end{center}
+
+\newpage
+
+\section*{Optimize}
+
+Für folgende Befehle muss zuerst \textbf{odr} und \textbf{optimize} aus \textbf{SciPy} importiert werden.
+\newline
+Es wird an dieser Stelle wärmstens Empfohlen sich für die beiden folgenden Befehle die Dokumentation durchzulesen, diese ist in der rechten Spalte verlinkt. Die Funktionen selber sind komplex und dies hier soll nur zur Übersicht/Auffrischung dienen.
+
+\begin{center}
+\begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
+\hline
+optimize .curve.fit() & Nimmt eine Parameterabhängige Funktion \textit{f} und 2 Arrays \textit{x} und \textit{y}. Versucht die Parameter der Funktion so zu bestimmen, dass f(x) = y ist. Zusätlich kann mit \textbf{bounds=()} die Schranken der Parameter festgelegt werden& Dokumentation und Beispiel in der \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html}{SciPy Dokumentation} \\
+\hline
+odr.Data() & Bringt die Daten in brauchbare Form & data = odr.Data(x, y, dx, dy) \\
+\hline
+odr.Model() & Bringt die Funktion in brauchbare Form & lin = odr.Model(f) \\
+\hline
+odr.ODR() & Bestimmt die fit Funktion. Mit beta können Abschätzungen gegeben werden & fit = odr.ODR(data, lin, beta0=[1, 1]) \newline \newline
+Dokumentation und Beispiel in der \href{https://docs.scipy.org/doc/scipy/reference/odr.html}{SciPy Dokumentation} \\
+\hline
+\end{tabular}
+\end{center}
+
+\section*{Tricks} 
 
 \begin{center}
 \begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
@@ -177,17 +260,18 @@ str(x) & Erstellt einen String aus x sofern möglich & string\_a = str(a) \\
 int(x) & Erstellt einen Integer aus x sofern möglich & int(string\_a) \\
 \hline
 x. & Erstellt statt einem Integer einen Float & 
-\begin{tabular}{|p{1.2cm}|p{1.1cm}|}
-2 & 2. \\
-\texttt{=>} 2 & \texttt{=>} 2.0 \\
-\end{tabular}
+2 \  $\Rightarrow$ 2 \newline{} 2. $\Rightarrow$ 2.0
 \\
 \hline
 \end{tabular}
 \end{center}
 
+
+
 %Standart Tabelle
 \begin{comment}
+\section*{}
+
 \begin{center}
 \begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
 \hline
@@ -196,6 +280,7 @@ x. & Erstellt statt einem Integer einen Float &
 \end{tabular}
 \end{center}
 \end{comment}
+
 
 
 \end{document}
