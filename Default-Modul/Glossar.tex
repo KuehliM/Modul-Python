@@ -39,7 +39,7 @@ print(x) & Gibt x aus & print(a) \newline{} $\Rightarrow$ 2\\
 \hline
 print(x, y, "z") & Innerhalb eines prints können mehrere Variablen verkettet werden& print("a = " , a) \newline{} $\Rightarrow$ a = 2\\
 \hline
-import \textcolor{gray}{Package} as \textcolor{gray}{Abkürzung} & Läd Bibliotheken m ihre Befehle nutzen zu können. Das "as Abkürzung" ist hierbei nicht erforderlich, sondern verringert die Schreibarbeit. & import numpy as np\\
+import \textcolor{gray}{Package} as \textcolor{gray}{Abkürzung} & Läd Bibliotheken um ihre Befehle nutzen zu können. Das "as Abkürzung" ist hierbei nicht erforderlich, sondern verringert die Schreibarbeit. & import numpy as np\\
 \hline
 from \textcolor{gray}{Package} import \textcolor{gray}{Methode} & Läd nur einzelne Methoden oder Packete aus einer Bibliothek & from numpy import pi \\
 \hline
@@ -104,6 +104,16 @@ Liste[x:y:z] & Gibt von Eintrag x bis Eintrag y jeden z-ten Eintrag aus. Hierbei
 len(Liste) & Anzahl der Listeneinträge & len(L) \newline{} $\Rightarrow$ 4 \\
 \hline
 sum(Liste) & Summiert alle Listeneinträge auf & sum(L) \newline{} $\Rightarrow$ 10 \\
+\hline
+Liste.append() & Fügt ein Objakt an das Ende der Liste an & L.append(25) \newline{} $\Rightarrow$ [2, 4, 3, 1, 10] \\
+\hline
+Liste[n] = x & Setzt Objekt n auf x & L[-1] = 5 \newline{} $\Rightarrow$ [2, 4, 3, 1, 5] \\
+\hline
+Liste.pop(n) & Entfernt Objekt n aus der Liste & L.pop(4) \newline{} $\Rightarrow$ [2, 4, 3, 1] \\
+\hline
+Liste.remove(x) & Entfernt das erste Objekt x & L.remove(4) \newline{} $\Rightarrow$ [2, 3, 1] \\
+\hline
+Liste.insert(n, x) & Fügt an Stelle n das Objekt x ein, das alte N wird so zu N+1 & L.insert(0,10) \newline{} $\Rightarrow$ [10, 2, 3, 1] \\
 \hline
 %Anhängen und entfernen von Elementen hinzufügen? In Datenauswetung wird auf eigene Recherche gesetzt
 \end{tabular}
@@ -229,7 +239,7 @@ unp.std\_devs() & Gibt einen Array der Unsicherheiten aus & unp.std\_devs(( [1, 
 
 \newpage
 
-\section*{Optimize}
+\section*{SciPy}  
 
 Für folgende Befehle muss zuerst \textbf{odr} und \textbf{optimize} aus \textbf{SciPy} importiert werden.
 \newline
