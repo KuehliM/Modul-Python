@@ -131,11 +131,13 @@ Für diese Befehle muss zuerst \textbf{NumPy} importiert werden. Hier wird im vo
 \begin{center}
 \begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
 \hline
-np.Methode & Lässt eine Methode aus NumPy ausführen & np.pi \newline{} $\Rightarrow$ 3.141592653589 \\
+np.Methode & Lässt eine Methode aus NumPy ausführen & np.pi \newline{} $\Rightarrow$ 3.14159 \\
 \hline
-np.sqrt(x) & Wurzel & sqrt(a) \newline{} $\Rightarrow$ 1.414213562373 \\
+np.sqrt(x) & Wurzel & sqrt(a) \newline{} $\Rightarrow$ 1.41421 \\
 \hline
-np.array(Liste) & Erstellt aus einer Liste einen NumPy Array & nL = np.Array(L) \\
+np.diag(M) & Gibt die Werte der Hauptdiagonalen einer Matrix wieder & np.diag([[1, 2], [2, 1]] \newline{} $\Rightarrow$ [1, 1] \\
+\hline
+np.array(Liste) & Erstellt aus einer Liste einen NumPy Array & nL = np.array(L) \\
 \hline
 array.min() & Gibt das Minimum von einem Array aus & nL.min() \newline{} $\Rightarrow$ 1 \\
 \hline
