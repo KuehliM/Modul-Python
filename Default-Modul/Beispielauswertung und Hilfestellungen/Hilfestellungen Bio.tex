@@ -1,0 +1,63 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{verbatim}
+\usepackage{hyperref}
+\usepackage{lipsum}
+
+\begin{document}
+
+% Direkt auf höheres Kapitel setzten?
+
+\section*{Allgemein}
+Für alle Versuche sind Berechnungen in Arrays, das Laden von Daten und darauffolgend das Plotten dieser von Nöten. Außerdem sind alle Messgrößen von Unsicherheiten behaftet. Somit sollten für all diese Pakete importiert werden.
+\newline \newline
+Zu beginn sollte immer auf den Datentyp der erhaltenen Messdaten geachtet werden. Ebenso auf die Datei selber. Bei dem Einlesen von Messdaten sollte also am besten direkt überprüft werden, ob diese auch korrekt übertragen wurden. Ebenso sinnvoll ist es Messdaten in einem externen Dokument zu speichern und nicht erst in der Auswertung händisch einzutragen. Hierdurch steigt die Übersichtlichkeit und Fehler können schneller entdeckt werden.
+
+\section{AUG}
+
+\subsection{Lochblende}
+Mithilfe von \textbf{NumPy} können Arrays, passender Form und Länge, Eintrags weise dividiert werden. Außerdem kann \textbf{UNumPy} automatisch Fehler Fortpflanzen.
+
+\subsection{Sammellinse}
+Es ist Hilfreich sich neben b und g auch jeweils Arrays für 1/b und 1/g zu erstellen. Nun müssen diese mit ihren Unsicherheiten geplottet werden.
+\newline \newline
+Für einen Vergleich ist es oft hilfreich ich die Messdaten zu plotten, hierbei sollte unbedingt darauf geachtet werden, dass die Achsen sinnvoll gewählt wurden. In einem Bericht sollte aber mindestens eine Tabelle vorkommen.
+
+\subsection{Das Auge des Fisches}
+Um eine Angepasste Kurve zu erstellen eignet sich ODR gut. Zuvor können die Messdaten geplotet werden und selber versucht werden, eine funktion zu finden, die passen könnte. Mit ihr kann dann ODR durchgeführt werden.
+
+\subsection{Das Auge des Säugetiers}
+Es bietet sich an mehrere Funktionen, nach einem Einheitlichem Farbschemata, gemeinsam zu plotten. \textbf{MatPlotLib} unterstützt das \href{https://www.rapidtables.org/de/web/color/html-color-codes.html}{Hex-System} für Farben.
+
+\section{BKL}
+
+%\subsection{Funktion des Windkessels} Hierzu gibt es nichts
+\setcounter{subsection}{1}
+\subsection{Strömungswiderstände bei laminarer Strömung}
+Minimale Maximale Steigung ist hier ein vergleichsweise Aufwändiger und zudem sehr ungenauer Weg. 
+\newline Wenn dieser benutzt wird bietet sich \textit{polyfit} von\textbf{NumPy} an, der Grad muss dann auf 1 gesetzt werden. Um die beiden Punkte für die Maximle und die Zwei für die Minimale zu bekommen bietet es sich an -1 als Arrayindex zu verwenden, dies gibt den letzten Eintrag eines Array aus.
+\newline Stattdessen kann mit ODR eine einfachere und genauere Methode gewählt werden. Hierfür, wie in der Beispielauswertung eine lineare Funktion fitten. Dies kann auch im folgendem verwendet werden, um Steigungen von geraden zu bestimmen.
+\newline \newline
+Um aus mehreren Plots ein Diagramm zu erstellen, können Subplots verwendet werden.
+\newline \newline
+Darüber hinaus kann in Diagrammen die Region zwischen zwei Funktionen eingefärbt werden, dies eignet sich gut, um den Unterschied zwischen zwei Verläufen darzustellen.
+
+\subsection{Turbulente Strömung}
+Auch hier bietet sich wieder das Einfärben der Region zwischen zwei Funktionen an
+
+\section{IL}
+Für das Berechnen von Unsicherheiten bietet sich hier wieder \textbf{UNumPy} an, da automatisch Fortgepflanzt wird. Um zwei Funktionen zu vergleichen diese in einer Grafik plotten. Hierbei eindeutige Farben und eine Legende verwenden.
+
+% \section{RÖN} Dieser Versuch erfordert keinen Bericht
+
+
+\end{document}
