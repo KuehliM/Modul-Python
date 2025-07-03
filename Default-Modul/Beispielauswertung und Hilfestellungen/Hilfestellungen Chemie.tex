@@ -1,0 +1,116 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{verbatim}
+\usepackage{hyperref}
+\usepackage{lipsum}
+
+\begin{document}
+
+\section*{Allgemein}
+Für alle Versuche sind Berechnungen in Arrays, das Laden von Daten und darauffolgend das Plotten dieser von Nöten. Außerdem sind alle Messgrößen von Unsicherheiten behaftet. Somit sollten für all diese Pakete importiert werden.
+\newline \newline
+Zu beginn sollte immer auf den Datentyp der erhaltenen Messdaten geachtet werden. Ebenso auf die Datei selber. Bei dem Einlesen von Messdaten sollte also am besten direkt überprüft werden, ob diese auch korrekt übertragen wurden. Ebenso sinnvoll ist es Messdaten in einem externen Dokument zu speichern und nicht erst in der Auswertung händisch einzutragen. Hierdurch steigt die Übersichtlichkeit und Fehler können schneller entdeckt werden.
+
+
+
+\setcounter{section}{1} %MEDA überspringen
+
+\section{BEU}
+\subsection{Beugung}
+Für die zweite Methode reicht \textit{polyfit} von \textbf{NumPy}, da auf der x-Achse keine Fehler sind. Dafür einfach den Grad auf 1 setzten.
+Für die Minimale und Maximale Steigung Jeweils den größten Punkt und den kleinsten Punkt bestimmen. Das erste und letzte Element eines Array kann durch [0] und [-1] erreicht werden. \newline
+Daraufhin kann entweder die Steigung "per Hand" berechnet werden oder wieder über \textit{polyfit}. \newline
+Zum plotten der Geraden ein \textit{linspace} erstellen, dies sollte etwas größer sein, wie die Spanne der Messpunkte, muss aber nicht viele Punkte enthalten.
+
+\subsection{Brechungsindex}
+Über \textbf{UNumPy} kann die Unsicherheit automatisch mit Fortgepflanzt werden. Außerdem werden nur signifikante Stellen gezeigt.
+
+
+
+\section{ERZ}
+\textit{\textbf{Hierzu lohnt sich eine Auswertung mit Python nicht, da nur einfachste Rechnungen ohne Unsicherheiten gemacht werden}}
+
+
+
+\section{LFK}
+\subsection{Aufgabe 1}
+Da auf beide Größen Unsicherheiten vorliegen, bietet sich \textit{ODR} von \textit{SciPy}. Darüber hinaus ist \textit{ODR} eine einfachere und genauere Methode zur Bestimmung der Unsicherheiten. Hierfür, wie in der Beispielauswertung eine lineare Funktion fitten. \newline
+Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werden die Unsicherheiten automatisch mitgeschleppt und Fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen.
+
+\subsection{Aufgabe 2 und 3}
+Da auf beide Größen Unsicherheiten vorliegen, bietet sich \textit{ODR} von \textbf{SciPy}. Darüber hinaus ist \textit{ODR} eine einfachere und genauere Methode zur Bestimmung der Unsicherheiten. Hierfür, wie in der Beispielauswertung eine lineare Funktion fitten. \newline
+Um mehrere Grafiken in einen Plot zu bekommen bieten sich Subplots an, so können mehrere ähnliche Kurven miteinander verglichen werden. Darüber hinaus gibt es in \textbf{MatPlotLib} mehr Möglichkeiten für Farben. Hiermit können Plots übersichtlicher gestaltet werden. Hierzu kann das \href{https://www.rapidtables.org/de/web/color/html-color-codes.html}{Hex-System} für Farben benutzt werden, welches von \textbf{MatPlotLib} unterstützt wird. \newline
+Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werden die Unsicherheiten automatisch mitgeschleppt und Fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen.
+
+
+
+\section{QP}
+\subsection{Bestimmung des Planckschen Wirkungsquantums}
+Da auf beide Größen Unsicherheiten vorliegen, bietet sich \textit{ODR} von \textbf{SciPy}. Darüber hinaus ist \textit{ODR} eine einfachere und genauere Methode zur Bestimmung der Unsicherheiten. Hierfür, wie in der Beispielauswertung eine lineare Funktion fitten. \newline
+Um mehrere Grafiken in einen Plot zu bekommen bieten sich Subplots an, so können mehrere ähnliche Kurven miteinander verglichen werden. Darüber hinaus gibt es in \textbf{MatPlotLib} mehr Möglichkeiten für Farben. Hiermit können Plots übersichtlicher gestaltet werden. Hierzu kann das \href{https://www.rapidtables.org/de/web/color/html-color-codes.html}{Hex-System} für Farben benutzt werden, welches von \textbf{MatPlotLib} unterstützt wird. \newline
+Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werden die Unsicherheiten automatisch mitgeschleppt und Fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen.
+
+\subsection{Quantenkryptographie}
+\textbf{\textit{Hier wird keine Rechnung oder graphische Darstellung gebraucht}}
+
+
+
+\section{RÖN}
+\textbf{\textit{Zu diesem Versuch ist kein Bericht anzufertigen}}
+
+
+
+\section{SES}
+\subsection{Permittivität}
+Da auf beide Größen Unsicherheiten vorliegen, bietet sich \textit{ODR} von \textbf{SciPy}. Darüber hinaus ist \textit{ODR} eine einfachere und genauere Methode zur Bestimmung der Unsicherheiten. Hierfür, wie in der Beispielauswertung eine lineare Funktion fitten. \newline
+Um mehrere Grafiken in einen Plot zu bekommen bieten sich Subplots an, so können mehrere ähnliche Kurven miteinander verglichen werden. \newline
+Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werden die Unsicherheiten automatisch mitgeschleppt und Fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen.
+
+\subsection{Polarisation}
+\textbf{\textit{Zu diesem Versuch müssen nur Grafiken per Hand gezeichnet werden}}
+
+
+
+\section{SK}
+\subsection{Resonanzkurve}
+Aufgrund der Anzahl der Messdaten eignet sich Python sehr gut für die Auswertung. Darüber hinaus können Funktionen gefittet werden, um Zusammenhänge besser zeigen zu können. Hierfür bietet sich besonders \textit{ODR} von \textbf{SciPy} an. \newline
+Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werden die Unsicherheiten automatisch mitgeschleppt und Fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen.
+
+\subsection{Phasenkurve}
+Aufgrund der Anzahl der Messdaten eignet sich Python sehr gut für die Auswertung. Darüber hinaus können Funktionen gefittet werden, um Zusammenhänge besser zeigen zu können. Hierfür bietet sich besonders \textit{ODR} von \textbf{SciPy} an. \newline
+Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werden die Unsicherheiten automatisch mitgeschleppt und Fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen. \newline
+
+\subsection{Einfluss von Materialeigenschaften}
+Aufgrund der Anzahl der Messdaten eignet sich Python sehr gut für die Auswertung. Darüber hinaus können Funktionen gefittet werden, um Zusammenhänge besser zeigen zu können. Hierfür bietet sich besonders \textit{ODR} von \textbf{SciPy} an. \newline
+Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werden die Unsicherheiten automatisch mitgeschleppt und Fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen. \newline
+Um mehrere Grafiken in einen Plot zu bekommen bieten sich Subplots an, so können mehrere ähnliche Kurven miteinander verglichen werden.
+
+
+
+\section{SPE}
+Besonders für diesen Versuch, aber auch die Kurzveröffentlichung lohnt sich die Verwendung von Python. Dies liegt in der Natur der Großen Datenmengen. Mit Python können Spektren geplottet und nach belieben beschriftet und markiert werden. Hierzu eignet es sich einen zum Beispiel einen Punkt zu plotten (Maxima) und diesen entsprechend zu \textit{labeln}. Außerdem kann mit \textit{text(\textcolor{gray}{x-Koordinate}, \textcolor{gray}{y-Koordinate}, \textcolor{gray}{'text'}, \textcolor{gray}{Schriftgröße})} von \textbf{MatPlotLib} ein Textfeld in die Grafik gelegt werden. Auch horizontale und vertikale Linien zur Unterteilung sind möglich. Hierfür einfach Anfangs- und Endpunkt in einem plot Befehl haben.
+Auch die Berechnung der Maxima kann mit Python automatisiert und vereinfacht werden. Hier hilft \textit{argsort} von \textbf{NumPy}. \newline 
+Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werden die Unsicherheiten automatisch mitgeschleppt und Fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen. \newline
+Da auf beide Größen Unsicherheiten vorliegen, bietet sich \textit{ODR} von \textbf{SciPy}. Darüber hinaus ist \textit{ODR} eine einfachere und genauere Methode zur Bestimmung der Unsicherheiten. Hierfür, wie in der Beispielauswertung eine lineare Funktion fitten. \newline
+Um mehrere Grafiken in einen Plot zu bekommen bieten sich Subplots an, so können mehrere ähnliche Kurven miteinander verglichen werden. Darüber hinaus gibt es in \textbf{MatPlotLib} mehr Möglichkeiten für Farben. Hiermit können Plots übersichtlicher gestaltet werden. Hierzu kann das \href{https://www.rapidtables.org/de/web/color/html-color-codes.html}{Hex-System} für Farben benutzt werden, welches von \textbf{MatPlotLib} unterstützt wird. \newline
+
+\section{VIS}
+\subsection{Oberflächenspannung}
+Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werden die Unsicherheiten automatisch mitgeschleppt und Fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen.
+
+\subsection{Senkrechtes Fallrohr}
+Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werden die Unsicherheiten automatisch mitgeschleppt und Fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen.
+
+\subsection{Kugelfallviskosimeter}
+Zum fitten der Funktion kann \textit{ODR} von \textbf{SciPy} verwendet werden. Auf diese Weise erhält man auch direkt die Unsicherheiten auf diese. Außerdem ist es möglich nicht nur Polynome (Wie in Excel) zu fitten, es kann auch direkt ein exponentieller Zusammenhang gefittet werden. Hierdurch könne die Daten anschaulicher dargestellt werden.
+
+\end{document}
