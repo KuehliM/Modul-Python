@@ -1,0 +1,1 @@
+Die Datei Beispiel.csv muss dann entsprechend entfernt werden und nur die Datei Beispiel.xlsx behalten werden.
