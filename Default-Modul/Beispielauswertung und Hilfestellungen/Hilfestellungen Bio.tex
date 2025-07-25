@@ -12,17 +12,30 @@
 \usepackage{verbatim}
 \usepackage{hyperref}
 \usepackage{lipsum}
+\usepackage[most]{tcolorbox}
 
 \begin{document}
 
 \setcounter{section}{1} % Kapitelnummer passt nun zu Versuchsbeschreibungen
 
 \section*{Allgemein}
-Für alle Versuche sind Berechnungen in Arrays, das Laden von Daten und darauffolgend das Plotten dieser von Nöten. Außerdem sind alle Messgrößen von Unsicherheiten behaftet. Somit sollten für all diese Pakete importiert werden.
+Für alle Versuche sind Berechnungen in Arrays, das Laden von Daten und darauffolgend das Plotten dieser vonnöten. Außerdem sind alle Messgrößen von Unsicherheiten behaftet. Somit sollten für all diese Pakete importiert werden.
 \newline \newline
-Zu beginn sollte immer auf den Datentyp der erhaltenen Messdaten geachtet werden. Ebenso auf die Datei selber. Bei dem Einlesen von Messdaten sollte also am besten direkt überprüft werden, ob diese auch korrekt übertragen wurden. Ebenso sinnvoll ist es Messdaten in einem externen Dokument zu speichern und nicht erst in der Auswertung händisch einzutragen. Hierdurch steigt die Übersichtlichkeit und Fehler können schneller entdeckt werden.
+Zu Beginn sollte immer auf den Datentyp der erhaltenen Messdaten geachtet werden. Ebenso auf die Datei selber. Bei dem Einlesen von Messdaten sollte also am besten direkt überprüft werden, ob diese auch korrekt übertragen wurden. Ebenso sinnvoll ist es, Messdaten in einem externen Dokument zu speichern und nicht erst in der Auswertung händisch einzutragen. Hierdurch steigt die Übersichtlichkeit und Fehler können schneller entdeckt werden.
 
 \section{AUG}
+
+\begin{center}
+\begin{tcolorbox}[
+colback=gray!20,     % Hintergrundfarbe (hellgrau)
+colframe=red,        % Rahmenfarbe (rot)
+width=0.8\textwidth, % Breite der Box
+boxrule=1pt,         % Dicke des Rahmens
+arc=1mm,             % Abrundung der Ecken
+]
+Hierfür eignet sich eine Speicherung der Daten in uArrays, so können Unsicherheiten automatisch fortgepflanzt werden. Außerdem ist eine Analyse der Daten mithilfe von ODR hilfreich.
+\end{tcolorbox}
+\end{center}
 
 \subsection{Lochblende}
 Mithilfe von \textbf{NumPy} können Arrays, passender Form und Länge, Eintrags weise dividiert werden. Außerdem kann \textbf{UNumPy} automatisch Fehler Fortpflanzen.
@@ -30,32 +43,90 @@ Mithilfe von \textbf{NumPy} können Arrays, passender Form und Länge, Eintrags 
 \subsection{Sammellinse}
 Es ist Hilfreich sich neben b und g auch jeweils Arrays für 1/b und 1/g zu erstellen. Nun müssen diese mit ihren Unsicherheiten geplottet werden.
 \newline \newline
-Für einen Vergleich ist es oft hilfreich sich die Messdaten zu plotten, hierbei sollte unbedingt darauf geachtet werden, dass die Achsen sinnvoll gewählt wurden. In einem Bericht sollte aber mindestens eine Tabelle vorkommen.
+Für einen Vergleich ist es oft hilfreich, sich die Messdaten zu plotten. Hierbei sollte unbedingt darauf geachtet werden, dass die Achsen sinnvoll gewählt wurden. In einem Bericht sollte aber mindestens eine Tabelle vorkommen.
 
 \subsection{Das Auge des Fisches}
-Um eine Angepasste Kurve zu erstellen eignet sich ODR gut. Zuvor können die Messdaten geplottet werden und selber versucht werden, eine Funktion zu finden, die passen könnte. Mit ihr kann dann ODR durchgeführt werden.
+Um eine angepasste Kurve zu erstellen, eignet sich ODR gut. Zuvor können die Messdaten geplottet werden und selber versucht werden, eine Funktion zu finden, die passen könnte. Mit ihr kann dann ODR durchgeführt werden.
+\begin{center}
+\begin{tcolorbox}[colback=gray!20, colframe=black, width=1\textwidth, boxrule=1pt, arc=1mm]
+from scipy import ODR \newline
+def gerade($\lambda$, x) \newline
+\hspace*{1cm} return $\lambda[0] \times x + \lambda[1]$ \newline
+Mod = Model(gerade) \newline
+Dat = Data(x, y, dx, dy) \newline
+Func = ODR(Mod, Dat, $\lambda=[a, b]$) \newline
+Out = Func.run()
+\end{tcolorbox}
+\end{center}
 
 \subsection{Das Auge des Säugetiers}
-Es bietet sich an mehrere Funktionen, nach einem Einheitlichem Farbschemata, gemeinsam zu plotten. \textbf{MatPlotLib} unterstützt das \href{https://www.rapidtables.org/de/web/color/html-color-codes.html}{Hex-System} für Farben.
+Es bietet sich an, mehrere Funktionen, nach einem einheitlichen Farbschema gemeinsam zu plotten. Hierzu kann das \href{https://www.rapidtables.org/de/web/color/html-color-codes.html}{Hex-System} für Farben benutzt werden, welches von \textbf{MatPlotLib} unterstützt wird. In der unten stehenden Box befinden sich zwei Beispiele für diese.
+\begin{center}
+\begin{tcolorbox}[colback=gray!20, colframe=black, width=1\textwidth, boxrule=1pt, arc=1mm]
+plt.errorbar(x, y, dx, dy, color='0AFF0A', ecolor='FF21CC')
+\end{tcolorbox}
+\end{center}
 
 \section{BKL}
+
+\begin{center}
+\begin{tcolorbox}[
+colback=gray!20,     % Hintergrundfarbe (hellgrau)
+colframe=red,        % Rahmenfarbe (rot)
+width=0.8\textwidth, % Breite der Box
+boxrule=1pt,         % Dicke des Rahmens
+arc=1mm,             % Abrundung der Ecken
+]
+Hier bietet sich ein Polyfit an. Auf diese Weise kann einfacher eine lineare Regression mit minimaler und maximaler Steigung durchgeführt werden. Darüber hinaus können mit MatPlotLib Funktionen auf verschiedenste Weisen miteinander verglichen werden.
+\end{tcolorbox}
+\end{center}
 
 %\subsection{Funktion des Windkessels} Hierzu gibt es nichts
 \setcounter{subsection}{1}
 \subsection{Strömungswiderstände bei laminarer Strömung}
 Minimale Maximale Steigung ist hier ein vergleichsweise Aufwändiger und zudem sehr ungenauer Weg. 
-\newline Wenn dieser benutzt wird bietet sich \textit{polyfit} von\textbf{NumPy} an, der Grad muss dann auf 1 gesetzt werden. Um die beiden Punkte für die Maximale und die Zwei für die Minimale zu bekommen bietet es sich an -1 als Arrayindex zu verwenden, dies gibt den letzten Eintrag eines Array aus.
-\newline Stattdessen kann mit ODR eine einfachere und genauere Methode gewählt werden. Hierfür, wie in der Beispielauswertung eine lineare Funktion fitten. Dies kann auch im folgendem verwendet werden, um Steigungen von geraden zu bestimmen.
-\newline \newline
+Besser ist \textit{Optimize} von \textbf{SciPy}, da auf der x-Achse keine Fehler sind. Dafür einfach den Grad auf 1 setzen.
+Für die minimale und maximale Steigung jeweils die Covarianzmatrix verweden. \newline
+Daraufhin kann entweder die Steigung über ein Steigungsdreieck berechnet werden oder wieder über \textit{Optimize}.
+\begin{center}
+\begin{tcolorbox}[colback=gray!20, colframe=black, width=1\textwidth, boxrule=1pt, arc=1mm]
+import scipy as sp \newline
+def gerade($\lambda$, x) \newline
+\hspace*{1cm} return $\lambda[0] \times x + \lambda[1]$ \newline
+Opt, Cov = sp.optimize.curve\_fit(gerade, x, y) \newline
+$d\lambda$ = np.sqrt(np.diag(Cov)) \newline
+$\Rightarrow$ \newline
+$\lambda[0] = Opt[0] \pm d\lambda[0] \land \lambda[1] = Opt[1] \pm d\lambda[1] $
+\end{tcolorbox}
+\end{center}
+Zum Plotten der Geraden ein \textit{linspace} erstellen, dieser sollte etwas größer sein als die Spanne der Messpunkte, muss aber nicht viele Punkte enthalten.\newline
 Um aus mehreren Plots ein Diagramm zu erstellen, können Subplots verwendet werden.
-\newline \newline
+\begin{center}
+\begin{tcolorbox}[colback=gray!20, colframe=black, width=1\textwidth, boxrule=1pt, arc=1mm]
+fig, (ax1, ax2) = plt.subplots(1, 2) \newline
+ax1.plot(x1, y1) \newline
+ax2.plot(x2, y2)
+\end{tcolorbox}
+\end{center}
 Darüber hinaus kann in Diagrammen die Region zwischen zwei Funktionen eingefärbt werden, dies eignet sich gut, um den Unterschied zwischen zwei Verläufen darzustellen.
 
 \subsection{Turbulente Strömung}
 In Diagrammen kann die Region zwischen zwei Funktionen eingefärbt werden, dies eignet sich gut, um den Unterschied zwischen zwei Verläufen darzustellen.
 
 \section{IL}
-Für das Berechnen von Unsicherheiten bietet sich hier \textbf{UNumPy} an, da automatisch Fortgepflanzt wird. Um zwei Funktionen zu vergleichen am besten diese in einer Grafik plotten. Hierbei eindeutige Farben und eine Legende verwenden.
+
+\begin{center}
+\begin{tcolorbox}[
+colback=gray!20,     % Hintergrundfarbe (hellgrau)
+colframe=red,        % Rahmenfarbe (rot)
+width=0.8\textwidth, % Breite der Box
+boxrule=1pt,         % Dicke des Rahmens
+arc=1mm,             % Abrundung der Ecken
+]
+Hierfür eignet sich eine Speicherung der Daten in uArrays, so können Unsicherheiten automatisch fortgepflanzt werden.
+\end{tcolorbox}
+\end{center}
+Für das Berechnen von Unsicherheiten bietet sich hier \textbf{UNumPy} an, da automatisch fortgepflanzt wird. Um zwei Funktionen zu vergleichen, am besten diese in einer Grafik plotten. Hierbei eindeutige Farben und eine Legende verwenden.
 
 % \section{RÖN} Dieser Versuch erfordert keinen Bericht
 

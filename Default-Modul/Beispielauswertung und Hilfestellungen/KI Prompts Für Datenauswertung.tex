@@ -1,0 +1,91 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{verbatim}
+\usepackage{hyperref}
+
+% Die Prompts wurden für die ChatGPT Modelle o4 und o4 mini getestet
+% Jedoch bringt das RWTH-GPT durchweg schlechtere Ergebnisse, wie die Seite von OpenAI
+
+\begin{document}
+
+\section{}
+Importiere NumPy in Python, wenn NumPy bereits durch Anaconda vorinstalliert ist. Zeige nur den nötigen Code dafür.
+
+\section{}
+haben meine Messdaten als CSV-Datei die Form: Zeit, x-Beschleunigung, y-Beschleunigung, z-Beschleunigung, Beschleunigung.
+Wie lese ich diese mit Numpy aus, sodass ich zwei separate Arrays in einer Zeile erhalte?
+Die Daten liegen im richtigen Pfad.
+
+\section{}
+\textit{Hier wird wieder nur importiert.}
+
+\section{}
+Plotte die Messdaten in einem Plot, mithilfe von MatPlotLib.
+Die Datenpunkte sollen nicht verbunden werden, es werden Skalenstriche und ein Gitternetz benötigt.
+
+\section{}
+Definiere eine parameterabhängige Sinusfunktion. 
+Sodass ich eine Frequenz in rad/s, eine Phase in rad und eine Amplitude übergeben kann.
+
+\section{}
+\textit{Hier wird wieder nur importiert}
+
+\section{}
+\textit{Hier nur Daten raten, somit mit im nächsten Schritt}
+
+\section{}
+Es wurde bereits eine parameterabhängige Sinusfunktion definiert, sodass eine Frequenz in rad/s, eine Phase in rad und eine Amplitude übergeben werden kann.
+Fitte mit Optimize von SciPy die vorher definierte Sinusfunktion an die Messdaten. Rate hierfür die Parameter. Plotte das Ergebnis nicht.
+
+\section{}
+Plotte zwei Funktionen, eine ist ein vorher erstellter sinusförmiger fit, das andere einzelne Datenpunkte. Achte darauf, dass beide Funktionen gut vergleichbar sind. Erstelle nicht noch einmal einen Fit, sondern plotte nur.
+
+\section{}
+Es liegt eine Unsicherheit in Form einer Kovarianzmatrix im $\mathbb{R}^{3 \times 3}$ vor. Berechne die Unsicherheiten auf die einzelnen Messwerte mit NumPy in Python.
+
+\section{}
+\textit{Hier wird wieder nur importiert}
+
+\section{}
+Speichere den Bestwert und die Unsicherheit der Amplitude  in einem ufloat.
+Die Werte selber befinden sich in Arrays.  
+Uncertainties ist bereits importiert.
+
+\section{}
+\textit{Bisherige Schritte wiederholen}
+
+\section{}
+Es liegen mehrere Werte aus den verschiedenen Messungen als ufloats vor. Diese sollen in einem uarray zusammengetragen werden.
+
+\section{}
+\textit{Berechnung muss händisch erfolgen.}
+
+\section{}
+Stelle für ein Federpendel folgende Beziehung auf: $f(\omega)= D * g(m)$
+und minipuliere den $\omega$ und den m Array entsprechend. Diese liegen als uArrays von uncertaincies vor. Hierbei ist D nicht bekannt und f eine Funktion von der Winkelgeschwindigkeit, jedoch nicht die Frequenz.
+
+\section{}
+Teile einen bereits existierenden uArray in Bestwerte und Unsicherheiten auf.
+
+\section{}
+Führe eine lineare Regression mithilfe von Optimize von SciPy durch.
+
+\section{}
+\textit{Hier wird wieder nur importiert}
+
+\section{}
+Führe eine lineare Regression mithilfe von ODR von SciPy durch.
+
+\section{}
+Vergleiche zwei uArrays. Auf Abweichung des Bestwertes, größe der Unsicherheit, sowie ob die Bestwerte im Rahmen der Messgenauigkeit liegen.
+
+\end{document}

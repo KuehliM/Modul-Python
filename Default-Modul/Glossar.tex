@@ -13,12 +13,22 @@
 \usepackage{hyperref}
 
 \geometry{margin=2.5cm}
+\renewcommand{\figurename}{Abbildung}
 
 \begin{document}
 
 %Hier noch ein Titel gemäß Nebenfach/Lehramt Ia
 
 \section*{Glossar für Python-Befehle}
+
+Um Excel-Dateien laden zu können, sollten diese zuerst in eine CSV-Datei umgeändert werden. Hierzu die Datei öffnen, dann: \newline
+\textcolor{gray}{Datei} $\Rightarrow$ \textcolor{gray}{Kopie speichern} $\Rightarrow$ \textcolor{gray}{Format} $\Rightarrow$ \textcolor{gray}{CSV (Trennzeichen getrennt)}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Anleitung zur Änderung einer Excel Datei in eine CSV Datei.PNG}
+    \caption{Anleitung zur Änderung einer Excel Datei in eine CSV Datei.}
+\end{figure}
 
 \begin{center}
 \begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
@@ -27,8 +37,6 @@
 \hline
 \end{tabular}
 \end{center}
-
-%Villeicht lieber weniger Abstand mit einer Tabelle und zwei \hline => Sieht nicht so gut aus
 
 \begin{center}
 \begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
@@ -39,9 +47,9 @@ print(x) & Gibt x aus & print(a) \newline{} $\Rightarrow$ 2\\
 \hline
 print(x, y, "z") & Innerhalb eines prints können mehrere Variablen verkettet werden& print("a = " , a) \newline{} $\Rightarrow$ a = 2\\
 \hline
-import \textcolor{gray}{Package} as \textcolor{gray}{Abkürzung} & Läd Bibliotheken um ihre Befehle nutzen zu können. Das "as Abkürzung" ist hierbei nicht erforderlich, sondern verringert die Schreibarbeit. & import numpy as np\\
+import \textcolor{gray}{Package} as \textcolor{gray}{Abkürzung} & lädt Bibliotheken, um ihre Befehle nutzen zu können. Das "as Abkürzung" ist hierbei nicht erforderlich, sondern verringert die Schreibarbeit. & import numpy as np\\
 \hline
-from \textcolor{gray}{Package} import \textcolor{gray}{Methode} & Läd nur einzelne Methoden oder Packete aus einer Bibliothek & from numpy import pi \\
+from \textcolor{gray}{Package} import \textcolor{gray}{Methode} & Lädt nur einzelne Methoden oder Pakete aus einer Bibliothek & from numpy import pi \\
 \hline
 \end{tabular}
 \end{center}
@@ -123,8 +131,7 @@ Liste.insert(n, x) & Fügt an Stelle n das Objekt x ein, das alte N wird so zu N
 
 \newpage
 \section*{NumPy}
-
-%np.diag() Bewusst rausgelassen, da in Einführung erklärt und sonst verwirrend 
+ 
 
 Für diese Befehle muss zuerst \textbf{NumPy} importiert werden. Hier wird im vollgendem immer \textit{np} als Abkürzung für \textbf{NumPy} verwendet.
 

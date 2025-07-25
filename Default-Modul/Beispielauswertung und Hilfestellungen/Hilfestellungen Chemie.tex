@@ -12,52 +12,133 @@
 \usepackage{verbatim}
 \usepackage{hyperref}
 \usepackage{lipsum}
+\usepackage[most]{tcolorbox}
 
 \begin{document}
 
 \section*{Allgemein}
-Für alle Versuche sind Berechnungen in Arrays, das Laden von Daten und darauffolgend das Plotten dieser von Nöten. Außerdem sind alle Messgrößen von Unsicherheiten behaftet. Somit sollten für all diese Pakete importiert werden.
+Für alle Versuche sind Berechnungen in Arrays, das Laden von Daten und darauffolgend das Plotten dieser vonnöten. Außerdem sind alle Messgrößen von Unsicherheiten behaftet. Somit sollten für all diese Pakete importiert werden.
 \newline \newline
-Zu beginn sollte immer auf den Datentyp der erhaltenen Messdaten geachtet werden. Ebenso auf die Datei selber. Bei dem Einlesen von Messdaten sollte also am besten direkt überprüft werden, ob diese auch korrekt übertragen wurden. Ebenso sinnvoll ist es Messdaten in einem externen Dokument zu speichern und nicht erst in der Auswertung händisch einzutragen. Hierdurch steigt die Übersichtlichkeit und Fehler können schneller entdeckt werden.
+Zu Beginn sollte immer auf den Datentyp der erhaltenen Messdaten geachtet werden. Ebenso auf die Datei selber. Bei dem Einlesen von Messdaten sollte also am besten direkt überprüft werden, ob diese auch korrekt übertragen wurden. Ebenso sinnvoll ist es, Messdaten in einem externen Dokument zu speichern und nicht erst in der Auswertung händisch einzutragen. Hierdurch steigt die Übersichtlichkeit und Fehler können schneller entdeckt werden.
 
 
 
-\setcounter{section}{1} %MEDA überspringen
+\setcounter{section}{1} % MEDA überspringen
 
 \section{BEU}
+
+\begin{center}
+\begin{tcolorbox}[colback=gray!20, colframe=red, width=0.8\textwidth, boxrule=1pt, arc=1mm]
+Für die lineare Regression bietet sich besonders SciPy an. So werden minimale und maximale Steigung auch ein einem mitberechnet.
+\end{tcolorbox}
+\end{center}
+
 \subsection{Beugung}
-Für die zweite Methode reicht \textit{polyfit} von \textbf{NumPy}, da auf der x-Achse keine Fehler sind. Dafür einfach den Grad auf 1 setzten.
-Für die Minimale und Maximale Steigung Jeweils den größten Punkt und den kleinsten Punkt bestimmen. Das erste und letzte Element eines Array kann durch [0] und [-1] erreicht werden. \newline
-Daraufhin kann entweder die Steigung "per Hand" berechnet werden oder wieder über \textit{polyfit}. \newline
-Zum plotten der Geraden ein \textit{linspace} erstellen, dies sollte etwas größer sein, wie die Spanne der Messpunkte, muss aber nicht viele Punkte enthalten.
+Für die zweite Methode reicht \textit{Optimize} von \textbf{SciPy}, da auf der x-Achse keine Fehler sind. Dafür einfach den Grad auf 1 setzen.
+Für die minimale und maximale Steigung jeweils die Covarianzmatrix verweden. \newline
+Daraufhin kann entweder die Steigung über ein Steigungsdreieck berechnet werden oder wieder über \textit{Optimize}.
+\begin{center}
+\begin{tcolorbox}[colback=gray!20, colframe=black, width=1\textwidth, boxrule=1pt, arc=1mm]
+import scipy as sp \newline
+def gerade($\lambda$, x) \newline
+\hspace*{1cm} return $\lambda[0] \times x + \lambda[1]$ \newline
+Opt, Cov = sp.optimize.curve\_fit(gerade, x, y) \newline
+$d\lambda$ = np.sqrt(np.diag(Cov)) \newline
+$\Rightarrow$ \newline
+$\lambda[0] = Opt[0] \pm d\lambda[0] \land \lambda[1] = Opt[1] \pm d\lambda[1] $
+\end{tcolorbox}
+\end{center}
+Zum Plotten der Geraden ein \textit{linspace} erstellen, dieser sollte etwas größer sein als die Spanne der Messpunkte, muss aber nicht viele Punkte enthalten.
 
 \subsection{Brechungsindex}
-Über \textbf{UNumPy} kann die Unsicherheit automatisch mit Fortgepflanzt werden. Außerdem werden nur signifikante Stellen gezeigt.
+Über \textbf{UNumPy} kann die Unsicherheit automatisch mit fortgepflanzt werden. Außerdem werden nur signifikante Stellen gezeigt.
 
 
 
 \section{ERZ}
-\textit{\textbf{Hierzu lohnt sich eine Auswertung mit Python nicht, da nur einfachste Rechnungen ohne Unsicherheiten gemacht werden}}
+\textit{\textbf{Hierzu lohnt sich eine Auswertung mit Python nicht, da nur einfachste Rechnungen ohne Unsicherheiten gemacht werden.}}
 
 
 
 \section{LFK}
+
+\begin{center}
+\begin{tcolorbox}[colback=gray!20, colframe=red, width=0.8\textwidth, boxrule=1pt, arc=1mm]
+Da auf beide Achsen Unsicherheiten vorliegen ist eine ODR Analyse zu empfehlen. Darüber hinaus können die Ergebnisse mit MatPlotLib deutlich besser verglichen werden.
+\end{tcolorbox}
+\end{center}
+
 \subsection{Aufgabe 1}
-Da auf beide Größen Unsicherheiten vorliegen, bietet sich \textit{ODR} von \textit{SciPy}. Darüber hinaus ist \textit{ODR} eine einfachere und genauere Methode zur Bestimmung der Unsicherheiten. Hierfür, wie in der Beispielauswertung eine lineare Funktion fitten. \newline
-Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werden die Unsicherheiten automatisch mitgeschleppt und Fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen.
+Da auf beide Größen Unsicherheiten vorliegen, bietet sich \textit{ODR} von \textit{SciPy}. Darüber hinaus ist \textit{ODR} eine einfachere und genauere Methode zur Bestimmung der Unsicherheiten. Hierfür, wie in der Beispielauswertung, eine lineare Funktion fitten. \newline
+\begin{center}
+\begin{tcolorbox}[colback=gray!20, colframe=black, width=1\textwidth, boxrule=1pt, arc=1mm]
+from scipy import ODR \newline
+def gerade($\lambda$, x) \newline
+\hspace*{1cm} return $\lambda[0] \times x + \lambda[1]$ \newline
+Mod = Model(gerade) \newline
+Dat = Data(x, y, dx, dy) \newline
+Func = ODR(Mod, Dat, $\lambda=[a, b]$) \newline
+Out = Func.run()
+\end{tcolorbox}
+\end{center}
+Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy}. Hier werden die Unsicherheiten automatisch fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen.
 
 \subsection{Aufgabe 2 und 3}
-Da auf beide Größen Unsicherheiten vorliegen, bietet sich \textit{ODR} von \textbf{SciPy}. Darüber hinaus ist \textit{ODR} eine einfachere und genauere Methode zur Bestimmung der Unsicherheiten. Hierfür, wie in der Beispielauswertung eine lineare Funktion fitten. \newline
-Um mehrere Grafiken in einen Plot zu bekommen bieten sich Subplots an, so können mehrere ähnliche Kurven miteinander verglichen werden. Darüber hinaus gibt es in \textbf{MatPlotLib} mehr Möglichkeiten für Farben. Hiermit können Plots übersichtlicher gestaltet werden. Hierzu kann das \href{https://www.rapidtables.org/de/web/color/html-color-codes.html}{Hex-System} für Farben benutzt werden, welches von \textbf{MatPlotLib} unterstützt wird. \newline
-Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werden die Unsicherheiten automatisch mitgeschleppt und Fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen.
+Da auf beide Größen Unsicherheiten vorliegen, bietet sich \textit{ODR} von \textbf{SciPy}. Darüber hinaus ist \textit{ODR} eine einfachere und genauere Methode zur Bestimmung der Unsicherheiten. Hierfür, wie in der Beispielauswertung, eine lineare Funktion fitten. \newline
+Um mehrere Grafiken in einen Plot zu bekommen, bieten sich Subplots an. So können mehrere ähnliche Kurven miteinander verglichen werden. 
+\begin{center}
+\begin{tcolorbox}[colback=gray!20, colframe=black, width=1\textwidth, boxrule=1pt, arc=1mm]
+fig, (ax1, ax2) = plt.subplots(1, 2) \newline
+ax1.plot(x1, y1) \newline
+ax2.plot(x2, y2)
+\end{tcolorbox}
+\end{center}
+Darüber hinaus gibt es in \textbf{MatPlotLib} mehr Möglichkeiten für Farben. Hiermit können Plots übersichtlicher gestaltet werden. Hierzu kann das \href{https://www.rapidtables.org/de/web/color/html-color-codes.html}{Hex-System} für Farben benutzt werden, welches von \textbf{MatPlotLib} unterstützt wird. In der unten stehenden Box befinden sich zwei Beispiele für diese.
+\begin{center}
+\begin{tcolorbox}[colback=gray!20, colframe=black, width=1\textwidth, boxrule=1pt, arc=1mm]
+plt.errorbar(x, y, dx, dy, color='0AFF0A', ecolor='FF21CC')
+\end{tcolorbox}
+\end{center}
+Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy}. Hier werden die Unsicherheiten automatisch fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen.
 
 
 
 \section{QP}
+
+\begin{center}
+\begin{tcolorbox}[colback=gray!20, colframe=red, width=0.8\textwidth, boxrule=1pt, arc=1mm]
+Da auf beide Achsen Unsicherheiten vorliegen ist eine ODR Analyse zu empfehlen. Darüber hinaus können die Ergebnisse mit MatPlotLib deutlich besser verglichen werden.
+\end{tcolorbox}
+\end{center}
+
 \subsection{Bestimmung des Planckschen Wirkungsquantums}
-Da auf beide Größen Unsicherheiten vorliegen, bietet sich \textit{ODR} von \textbf{SciPy}. Darüber hinaus ist \textit{ODR} eine einfachere und genauere Methode zur Bestimmung der Unsicherheiten. Hierfür, wie in der Beispielauswertung eine lineare Funktion fitten. \newline
-Um mehrere Grafiken in einen Plot zu bekommen bieten sich Subplots an, so können mehrere ähnliche Kurven miteinander verglichen werden. Darüber hinaus gibt es in \textbf{MatPlotLib} mehr Möglichkeiten für Farben. Hiermit können Plots übersichtlicher gestaltet werden. Hierzu kann das \href{https://www.rapidtables.org/de/web/color/html-color-codes.html}{Hex-System} für Farben benutzt werden, welches von \textbf{MatPlotLib} unterstützt wird. \newline
-Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werden die Unsicherheiten automatisch mitgeschleppt und Fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen.
+Da auf beide Größen Unsicherheiten vorliegen, bietet sich \textit{ODR} von \textbf{SciPy}. Darüber hinaus ist \textit{ODR} eine einfachere und genauere Methode zur Bestimmung der Unsicherheiten. Hierfür, wie in dBeispielauswertung eine lineare Funktion fitten. \newline
+\begin{center}
+\begin{tcolorbox}[colback=gray!20, colframe=black, width=1\textwidth, boxrule=1pt, arc=1mm]
+from scipy import ODR \newline
+def gerade($\lambda$, x) \newline
+\hspace*{1cm} return $\lambda[0] \times x + \lambda[1]$ \newline
+Mod = Model(gerade) \newline
+Dat = Data(x, y, dx, dy) \newline
+Func = ODR(Mod, Dat, $\lambda=[a, b]$) \newline
+Out = Func.run()
+\end{tcolorbox}
+\end{center}
+Um mehrere Grafiken in einen Plot zu bekommen, bieten sich Subplots an. So können mehrere ähnliche Kurven miteinander verglichen werden. 
+\begin{center}
+\begin{tcolorbox}[colback=gray!20, colframe=black, width=1\textwidth, boxrule=1pt, arc=1mm]
+fig, (ax1, ax2) = plt.subplots(1, 2) \newline
+ax1.plot(x1, y1) \newline
+ax2.plot(x2, y2)
+\end{tcolorbox}
+\end{center}
+Darüber hinaus gibt es in \textbf{MatPlotLib} mehr Möglichkeiten für Farben. Hiermit können Plots übersichtlicher gestaltet werden. Hierzu kann das \href{https://www.rapidtables.org/de/web/color/html-color-codes.html}{Hex-System} für Farben benutzt werden, welches von \textbf{MatPlotLib} unterstützt wird. In der unten stehenden Box befinden sich zwei Beispiele für diese.
+\begin{center}
+\begin{tcolorbox}[colback=gray!20, colframe=black, width=1\textwidth, boxrule=1pt, arc=1mm]
+plt.errorbar(x, y, dx, dy, color='0AFF0A', ecolor='FF21CC')
+\end{tcolorbox}
+\end{center}
+Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy}. Hier werden die Unsicherheiten automatisch  fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen.
 
 \subsection{Quantenkryptographie}
 \textbf{\textit{Hier wird keine Rechnung oder graphische Darstellung gebraucht}}
@@ -70,10 +151,35 @@ Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werd
 
 
 \section{SES}
+
+\begin{center}
+\begin{tcolorbox}[colback=gray!20, colframe=red, width=0.8\textwidth, boxrule=1pt, arc=1mm]
+Da auf beide Achsen Unsicherheiten vorliegen ist eine ODR Analyse zu empfehlen. Darüber hinaus empfielt sich eine Verwendung von Uncrtaincies, wodruch Unsicherheiten automatisch fortgepflanzt werden.
+\end{tcolorbox}
+\end{center}
+
 \subsection{Permittivität}
-Da auf beide Größen Unsicherheiten vorliegen, bietet sich \textit{ODR} von \textbf{SciPy}. Darüber hinaus ist \textit{ODR} eine einfachere und genauere Methode zur Bestimmung der Unsicherheiten. Hierfür, wie in der Beispielauswertung eine lineare Funktion fitten. \newline
-Um mehrere Grafiken in einen Plot zu bekommen bieten sich Subplots an, so können mehrere ähnliche Kurven miteinander verglichen werden. \newline
-Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werden die Unsicherheiten automatisch mitgeschleppt und Fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen.
+Da auf beide Größen Unsicherheiten vorliegen, bietet sich \textit{ODR} von \textbf{SciPy}. Darüber hinaus ist \textit{ODR} eine einfachere und genauere Methode zur Bestimmung der Unsicherheiten. Hierfür, wie in der Beispielauswertung, eine lineare Funktion fitten.
+\begin{center}
+\begin{tcolorbox}[colback=gray!20, colframe=black, width=1\textwidth, boxrule=1pt, arc=1mm]
+from scipy import ODR \newline
+def gerade($\lambda$, x) \newline
+\hspace*{1cm} return $\lambda[0] \times x + \lambda[1]$ \newline
+Mod = Model(gerade) \newline
+Dat = Data(x, y, dx, dy) \newline
+Func = ODR(Mod, Dat, $\lambda=[a, b]$) \newline
+Out = Func.run()
+\end{tcolorbox}
+\end{center}
+Um mehrere Grafiken in einen Plot zu bekommen, bieten sich Subplots an. So können mehrere ähnliche Kurven miteinander verglichen werden.
+\begin{center}
+\begin{tcolorbox}[colback=gray!20, colframe=black, width=1\textwidth, boxrule=1pt, arc=1mm]
+fig, (ax1, ax2) = plt.subplots(1, 2) \newline
+ax1.plot(x1, y1) \newline
+ax2.plot(x2, y2)
+\end{tcolorbox}
+\end{center}
+Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy}. Hier werden die Unsicherheiten automatisch fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen.
 
 \subsection{Polarisation}
 \textbf{\textit{Zu diesem Versuch müssen nur Grafiken per Hand gezeichnet werden}}
@@ -81,36 +187,113 @@ Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werd
 
 
 \section{SK}
+
+\begin{center}
+\begin{tcolorbox}[colback=gray!20, colframe=red, width=0.8\textwidth, boxrule=1pt, arc=1mm]
+Für diesen Versuch ist eine Auswertung mit Python besonders zu empfehlen. \newline
+Da auf beide Achsen Unsicherheiten vorliegen ist eine ODR Analyse zu empfehlen. Darüber hinaus empfielt sich eine Verwendung von Uncrtaincies, wodruch Unsicherheiten automatisch fortgepflanzt werden.
+\end{tcolorbox}
+\end{center}
+
 \subsection{Resonanzkurve}
-Aufgrund der Anzahl der Messdaten eignet sich Python sehr gut für die Auswertung. Darüber hinaus können Funktionen gefittet werden, um Zusammenhänge besser zeigen zu können. Hierfür bietet sich besonders \textit{ODR} von \textbf{SciPy} an. \newline
-Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werden die Unsicherheiten automatisch mitgeschleppt und Fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen.
+Aufgrund der Anzahl der Messdaten eignet sich Python sehr gut für die Auswertung.  \newline
+Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werden die Unsicherheiten automatisch Fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen.
 
 \subsection{Phasenkurve}
-Aufgrund der Anzahl der Messdaten eignet sich Python sehr gut für die Auswertung. Darüber hinaus können Funktionen gefittet werden, um Zusammenhänge besser zeigen zu können. Hierfür bietet sich besonders \textit{ODR} von \textbf{SciPy} an. \newline
-Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werden die Unsicherheiten automatisch mitgeschleppt und Fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen. \newline
+Aufgrund der Anzahl der Messdaten eignet sich Python sehr gut für die Auswertung. Darüber hinaus können Funktionen gefittet werden, um Zusammenhänge besser zeigen zu können. Hierfür bietet sich besonders \textit{ODR} von \textbf{SciPy} an.
+\begin{center}
+\begin{tcolorbox}[colback=gray!20, colframe=black, width=1\textwidth, boxrule=1pt, arc=1mm]
+from scipy import ODR \newline
+def gerade($\lambda$, x) \newline
+\hspace*{1cm} return $\lambda[0] \times np.arctan(\lambda[1]x + \lambda[2])+\lambda[3])$ \newline
+Mod = Model(gerade) \newline
+Dat = Data(x, y, dx, dy) \newline
+Func = ODR(Mod, Dat, $\lambda=[a, b, c, d]$) \newline
+Out = Func.run()
+\end{tcolorbox}
+\end{center}
+Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werden die Unsicherheiten automatisch Fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen. \newline
 
 \subsection{Einfluss von Materialeigenschaften}
 Aufgrund der Anzahl der Messdaten eignet sich Python sehr gut für die Auswertung. Darüber hinaus können Funktionen gefittet werden, um Zusammenhänge besser zeigen zu können. Hierfür bietet sich besonders \textit{ODR} von \textbf{SciPy} an. \newline
-Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werden die Unsicherheiten automatisch mitgeschleppt und Fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen. \newline
+Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werden die Unsicherheiten automatisch Fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen. \newline
 Um mehrere Grafiken in einen Plot zu bekommen bieten sich Subplots an, so können mehrere ähnliche Kurven miteinander verglichen werden.
 
 
 
 \section{SPE}
-Besonders für diesen Versuch, aber auch die Kurzveröffentlichung lohnt sich die Verwendung von Python. Dies liegt in der Natur der Großen Datenmengen. Mit Python können Spektren geplottet und nach belieben beschriftet und markiert werden. Hierzu eignet es sich einen zum Beispiel einen Punkt zu plotten (Maxima) und diesen entsprechend zu \textit{labeln}. Außerdem kann mit \textit{text(\textcolor{gray}{x-Koordinate}, \textcolor{gray}{y-Koordinate}, \textcolor{gray}{'text'}, \textcolor{gray}{Schriftgröße})} von \textbf{MatPlotLib} ein Textfeld in die Grafik gelegt werden. Auch horizontale und vertikale Linien zur Unterteilung sind möglich. Hierfür einfach Anfangs- und Endpunkt in einem plot Befehl haben.
+
+\begin{center}
+\begin{tcolorbox}[colback=gray!20, colframe=red, width=0.8\textwidth, boxrule=1pt, arc=1mm]
+Für diesen Versuch ist eine Auswertung mit Python besonders zu empfehlen. \newline
+Da auf beide Achsen Unsicherheiten vorliegen ist eine ODR Analyse zu empfehlen. Darüber hinaus empfielt sich eine Verwendung von Uncrtaincies, wodruch Unsicherheiten automatisch fortgepflanzt werden.
+\end{tcolorbox}
+\end{center} 
+\noindent
+Besonders für diesen Versuch, aber auch die Kurzveröffentlichung lohnt sich die Verwendung von Python. Dies liegt in der Natur der Großen Datenmengen. Mit Python können Spektren geplottet und nach belieben beschriftet und markiert werden. Hierzu eignet es sich einen zum Beispiel einen Punkt zu plotten (Maxima) und diesen entsprechend zu \textit{labeln}. Außerdem kann in \textbf{MatPlotLib} ein Textfeld in die Grafik gelegt werden.
+\begin{center}
+\begin{tcolorbox}[colback=gray!20, colframe=black, width=1\textwidth, boxrule=1pt, arc=1mm]
+plt.text(x, y, 'text')
+\end{tcolorbox}
+\end{center}
+Auch horizontale und vertikale Linien zur Unterteilung sind möglich. Hierfür einfach Anfangs- und Endpunkt in einem plot Befehl haben.
 Auch die Berechnung der Maxima kann mit Python automatisiert und vereinfacht werden. Hier hilft \textit{argsort} von \textbf{NumPy}. \newline 
-Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werden die Unsicherheiten automatisch mitgeschleppt und Fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen. \newline
+Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werden die Unsicherheiten automatisch Fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen. \newline
 Da auf beide Größen Unsicherheiten vorliegen, bietet sich \textit{ODR} von \textbf{SciPy}. Darüber hinaus ist \textit{ODR} eine einfachere und genauere Methode zur Bestimmung der Unsicherheiten. Hierfür, wie in der Beispielauswertung eine lineare Funktion fitten. \newline
-Um mehrere Grafiken in einen Plot zu bekommen bieten sich Subplots an, so können mehrere ähnliche Kurven miteinander verglichen werden. Darüber hinaus gibt es in \textbf{MatPlotLib} mehr Möglichkeiten für Farben. Hiermit können Plots übersichtlicher gestaltet werden. Hierzu kann das \href{https://www.rapidtables.org/de/web/color/html-color-codes.html}{Hex-System} für Farben benutzt werden, welches von \textbf{MatPlotLib} unterstützt wird. \newline
+\begin{center}
+\begin{tcolorbox}[colback=gray!20, colframe=black, width=1\textwidth, boxrule=1pt, arc=1mm]
+from scipy import ODR \newline
+def gerade($\lambda$, x) \newline
+\hspace*{1cm} return $\lambda[0] \times x + \lambda[1]$ \newline
+Mod = Model(gerade) \newline
+Dat = Data(x, y, dx, dy) \newline
+Func = ODR(Mod, Dat, $\lambda=[a, b]$) \newline
+Out = Func.run()
+\end{tcolorbox}
+\end{center}
+Um mehrere Grafiken in einen Plot zu bekommen, bieten sich Subplots an. So können mehrere ähnliche Kurven miteinander verglichen werden. 
+\begin{center}
+\begin{tcolorbox}[colback=gray!20, colframe=black, width=1\textwidth, boxrule=1pt, arc=1mm]
+fig, (ax1, ax2) = plt.subplots(1, 2) \newline
+ax1.plot(x1, y1) \newline
+ax2.plot(x2, y2)
+\end{tcolorbox}
+\end{center}
+Darüber hinaus gibt es in \textbf{MatPlotLib} mehr Möglichkeiten für Farben. Hiermit können Plots übersichtlicher gestaltet werden. Hierzu kann das \href{https://www.rapidtables.org/de/web/color/html-color-codes.html}{Hex-System} für Farben benutzt werden, welches von \textbf{MatPlotLib} unterstützt wird. In der unten stehenden Box befinden sich zwei Beispiele für diese.
+\begin{center}
+\begin{tcolorbox}[colback=gray!20, colframe=black, width=1\textwidth, boxrule=1pt, arc=1mm]
+plt.errorbar(x, y, dx, dy, color='0AFF0A', ecolor='FF21CC')
+\end{tcolorbox}
+\end{center}
 
 \section{VIS}
 \subsection{Oberflächenspannung}
-Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werden die Unsicherheiten automatisch mitgeschleppt und Fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen.
+Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werden die Unsicherheiten automatisch Fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen.
 
 \subsection{Senkrechtes Fallrohr}
-Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werden die Unsicherheiten automatisch mitgeschleppt und Fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen.
+Für die Berechnung der Unsicherheiten bietet sich \textbf{UNumPy} an, hier werden die Unsicherheiten automatisch Fortgepflanzt, sodass diese nicht noch einmal manuell berechnet werden müssen.
 
 \subsection{Kugelfallviskosimeter}
 Zum fitten der Funktion kann \textit{ODR} von \textbf{SciPy} verwendet werden. Auf diese Weise erhält man auch direkt die Unsicherheiten auf diese. Außerdem ist es möglich nicht nur Polynome (Wie in Excel) zu fitten, es kann auch direkt ein exponentieller Zusammenhang gefittet werden. Hierdurch könne die Daten anschaulicher dargestellt werden.
+\begin{center}
+\begin{tcolorbox}[colback=gray!20, colframe=black, width=1\textwidth, boxrule=1pt, arc=1mm]
+from scipy import ODR \newline
+def gerade($\lambda$, x) \newline
+\hspace*{1cm} return $\lambda[0] \times np.ln(\lambda[1]x) + \lambda[2]$ \newline
+Mod = Model(gerade) \newline
+Dat = Data(x, y, dx, dy) \newline
+Func = ODR(Mod, Dat, $\lambda=[a, b, c]$) \newline
+Out = Func.run()
+\end{tcolorbox}
+\end{center}
 
 \end{document}
+
+
+%%%
+\begin{center}
+\begin{tcolorbox}[colback=gray!20, colframe=red, width=0.8\textwidth, boxrule=1pt, arc=1mm]
+
+\end{tcolorbox}
+\end{center}
+%%%
